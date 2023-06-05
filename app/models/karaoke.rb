@@ -1,0 +1,2 @@
+class Karaoke < ApplicationRecord
+end

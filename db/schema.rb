@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_06_05_034235) do
-  create_table "karaoke_hubs", force: :cascade do |t|
+  create_table "karaokes", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.datetime "created_at", null: false
@@ -39,13 +39,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_034235) do
   end
 
   create_table "sessions", force: :cascade do |t|
+    t.text "participants"
     t.integer "karaoke_id", null: false
     t.integer "user_id", null: false
-    t.integer "track_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["karaoke_id"], name: "index_sessions_on_karaoke_id"
-    t.index ["track_id"], name: "index_sessions_on_track_id"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
@@ -64,6 +63,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_034235) do
   add_foreign_key "session_tracks", "sessions"
   add_foreign_key "session_tracks", "tracks"
   add_foreign_key "sessions", "karaokes"
-  add_foreign_key "sessions", "tracks"
   add_foreign_key "sessions", "users"
 end
