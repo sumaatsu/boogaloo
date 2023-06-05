@@ -1,0 +1,2 @@
+class KaraokeHub < ApplicationRecord
+end
