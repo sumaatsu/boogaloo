@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[edit update destroy]
   resources :sessions do
     resources :reviews,  only: %i[new create]
-    resources :session_tracks,  only: %i[new creat]
+    resources :session_tracks,  only: %i[new create]
   end
   resources :karaokes
   resources :tracks #showing the list of tracks for browsing with using AJAX? still any of track instanses isn't created yet.
